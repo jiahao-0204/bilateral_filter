@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+    <!-- subcriber and publisher params -->
+    <arg name="topic_input"                         default="/hesai/pandar_corrected_organized"/>
+    <arg name="topic_output"                        default="/hesai/pandar_corrected_organized_bilateral"/>
+
+    <!-- bilaterial filtering params -->
+    <arg name="bilateral_width"                     default="5"/>
+    <arg name="bilateral_sigma_d"                   default="0.05"/>
+    <arg name="bilateral_sigma_i"                   default="0.05"/>
+
+    <!-- node -->
+    <node name="bilateral_filter_node" pkg="bilateral_filter" type="bilateral_filter_node"  output="screen">
+        <param name="topic_input"                       value="$(arg topic_input)"/>
+        <param name="topic_output"                      value="$(arg topic_output)"/>
+        <param name="bilateral_width"                   value="$(arg bilateral_width)"/>
+        <param name="bilateral_sigma_d"                 value="$(arg bilateral_sigma_d)"/>
+        <param name="bilateral_sigma_i"                 value="$(arg bilateral_sigma_i)"/>
+    </node>
+</launch>
