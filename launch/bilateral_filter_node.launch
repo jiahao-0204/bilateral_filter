@@ -5,8 +5,8 @@
     <arg name="topic_output"                        default="/hesai/pandar_corrected_organized_bilateral"/>
 
     <!-- bilaterial filtering params -->
-    <arg name="bilateral_width"                     default="5"/>
-    <arg name="bilateral_sigma_d"                   default="0.05"/>
+    <arg name="bilateral_width"                     default="6"/>
+    <arg name="bilateral_sigma_d"                   default="2"/>
     <arg name="bilateral_sigma_i"                   default="0.05"/>
 
     <!-- node -->

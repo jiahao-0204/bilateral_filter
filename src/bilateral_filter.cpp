@@ -110,7 +110,8 @@ void BilateralFilterRos::runAlgorithm()
             for (int k = -bilateral_width_; k<bilateral_width_; k++){
                 if (isnan(range_image.at(i+k).at(j))) {continue;};
 
-                float diff_d = tanf(abs(k)/180.f*M_PI)*range_image.at(i).at(j);
+                // float diff_d = tanf(abs(k)/180.f*M_PI)*range_image.at(i).at(j);
+                float diff_d = k;
                 float diff_i = range_image.at(i).at(j) - range_image.at(i+k).at(j);
                 float gauss_d = expf(-1.f/2.f*powf(diff_d/bilateral_sigma_d_, 2.f));
                 float gauss_i = expf(-1.f/2.f*powf(diff_i/bilateral_sigma_i_, 2.f));
