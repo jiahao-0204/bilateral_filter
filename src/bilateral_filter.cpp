@@ -127,7 +127,6 @@ void BilateralFilterRos::runAlgorithm()
             pointcloud_output_.at(i, j).y = new_range / range_image.at(i).at(j) * pointcloud_input_.at(i, j).y; 
             pointcloud_output_.at(i, j).z = new_range / range_image.at(i).at(j) * pointcloud_input_.at(i, j).z; 
             pointcloud_output_.at(i, j).intensity = pointcloud_input_.at(i, j).intensity; 
-            pointcloud_output_.at(i, j).timestamp = pointcloud_input_.at(i, j).timestamp; 
             pointcloud_output_.at(i, j).ring = pointcloud_input_.at(i, j).ring;
         }
     }    

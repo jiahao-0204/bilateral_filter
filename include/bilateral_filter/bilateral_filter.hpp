@@ -3,6 +3,7 @@
 
 #include <ros/ros.h>
 #include "point_type/HesaiPointT.hpp"
+#include "point_type/GazeboPointT.hpp"
 #include <pcl_conversions/pcl_conversions.h>
 
 namespace bilateral_filter
@@ -42,7 +43,7 @@ namespace bilateral_filter
         
         // data
         std_msgs::Header msg_input_header_;
-        pcl::PointCloud<HesaiPointT> pointcloud_input_;
-        pcl::PointCloud<HesaiPointT> pointcloud_output_;
+        pcl::PointCloud<GazeboPointT> pointcloud_input_;
+        pcl::PointCloud<GazeboPointT> pointcloud_output_;
     };
 }
