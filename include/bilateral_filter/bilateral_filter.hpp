@@ -22,7 +22,6 @@ namespace bilateral_filter
         void callback(const sensor_msgs::PointCloud2::ConstPtr &msg_pointcloud);
         void readData(const sensor_msgs::PointCloud2::ConstPtr &msg_pointcloud);
         void runAlgorithm();
-        void obtainRangeImage(const pcl::PointCloud<HesaiPointT> &cloud_organized, std::vector<std::vector<float>> &range_image);
         void publish();
 
         // node handle

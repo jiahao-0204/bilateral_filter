@@ -88,7 +88,12 @@ void BilateralFilterRos::runAlgorithm()
 
     // obtain range image
     std::vector<std::vector<float>> range_image;
-    BilateralFilterRos::obtainRangeImage(pointcloud_input_, range_image);
+    range_image.resize(pointcloud_input_.width, std::vector<float>(pointcloud_input_.height));
+    for (int i = 0; i < pointcloud_input_.width; i++){
+        for (int j = 0; j < pointcloud_input_.height; j++){
+            range_image.at(i).at(j) = pointcloud_input_.at(i, j).getVector3fMap().norm();
+        }
+    }
 
     // perform filtering
     for (int i = bilateral_width_; i < pointcloud_input_.width-bilateral_width_; i++){
@@ -123,21 +128,6 @@ void BilateralFilterRos::runAlgorithm()
             pointcloud_output_.at(i, j).intensity = pointcloud_input_.at(i, j).intensity; 
             pointcloud_output_.at(i, j).timestamp = pointcloud_input_.at(i, j).timestamp; 
             pointcloud_output_.at(i, j).ring = pointcloud_input_.at(i, j).ring;
-        }
-    }    
-}
-
-void BilateralFilterRos::obtainRangeImage(const pcl::PointCloud<HesaiPointT> &cloud_organized, std::vector<std::vector<float>> &range_image)
-{    
-    // resize
-    int ROW = cloud_organized.width;
-    int COL = cloud_organized.height;
-    range_image.resize(ROW, std::vector<float>(COL));
-
-    // assign
-    for (int i = 0; i < cloud_organized.width; i++){
-        for (int j = 0; j < cloud_organized.height; j++){
-            range_image.at(i).at(j) = cloud_organized.at(i, j).getVector3fMap().norm();
         }
     }    
 }
