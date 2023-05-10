@@ -43,7 +43,7 @@ namespace bilateral_filter
         
         // data
         std_msgs::Header msg_input_header_;
-        pcl::PointCloud<GazeboPointT> pointcloud_input_;
-        pcl::PointCloud<GazeboPointT> pointcloud_output_;
+        pcl::PointCloud<HesaiPointT> pointcloud_input_;
+        pcl::PointCloud<HesaiPointT> pointcloud_output_;
     };
 }
